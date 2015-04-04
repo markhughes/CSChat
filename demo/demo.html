@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../Chat.js"></script>
+		
+		<style type="text/css">
+			body {
+				background: #000;
+			}
+			
+			#chat-bar {
+				position: absolute;
+				background: url("demo-assets/interface-bottombar.png");
+				background-repeat: no-repeat;
+				height: 61px;
+				width: 760px;
+				
+				bottom: 0;
+			}
+			
+			#text-box {
+				margin-left: 100px;
+				margin-top: 25px;
+				width: 330px;
+				background: transparent;
+				border: 0;
+			}
+			:focus {
+outline: 0;
+}
+		</style>
+		
+		<script type="text/javascript">
+			Chat.assets = "../assets/chat/";
+			function chat(e) {
+				if(e.keyCode == 13) {
+					document.body.appendChild(Chat.create("Markeh", document.getElementById("text-box").value, 50));
+					document.getElementById("text-box").value="";
+				}
+				console.log(e);	
+			}
+		</script>
+	</head>
+	<body>
+	
+		<div id="chat-bar">
+			<input type="text" id="text-box" onkeypress="chat(event)">
+		</div>
+	</body>
+</html>
