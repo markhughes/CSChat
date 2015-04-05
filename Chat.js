@@ -28,6 +28,7 @@ var Chat = {
 	settings: {
 		assetsPath: "assets/chat/",
 		pushTime: 2500,
+		pushSpeed: "700ms",
 		zIndex: 9000,
 	},
 	doPush: function() {
@@ -61,8 +62,8 @@ var Chat = {
 		chatElement.style.top = 200;
 		chatElement.style.zIndex = this.settings.zIndex;
 		chatElement.style.transitionProperty = "top";
-		chatElement.style.transitionDuration = "1s, 1s";
-		chatElement.style.transitionDelay = "0s, 1s";
+		chatElement.style.transitionDuration = this.settings.pushSpeed+", "+this.settings.pushSpeed;
+		chatElement.style.transitionDelay = "0s, 0s";
 
 		var chatLeft = document.createElement("chat-name");
 		var chatRight = document.createElement("chat-msg");
