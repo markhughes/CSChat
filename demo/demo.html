@@ -30,13 +30,12 @@ outline: 0;
 		</style>
 		
 		<script type="text/javascript">
-			Chat.assets = "../assets/chat/";
+			Chat.settings.assetsPath = "../assets/chat/";
 			function chat(e) {
 				if(e.keyCode == 13) {
 					document.body.appendChild(Chat.create("Markeh", document.getElementById("text-box").value, 50));
 					document.getElementById("text-box").value="";
 				}
-				console.log(e);	
 			}
 		</script>
 	</head>
