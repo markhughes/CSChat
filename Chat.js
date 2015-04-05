@@ -27,7 +27,8 @@
 var Chat = {
 	settings: {
 		assetsPath: "assets/chat/",
-		pushTime: 2500
+		pushTime: 2500,
+		zIndex: 9000,
 	},
 	doPush: function() {
 		var elements = document.getElementsByTagName("x-chat-msg");
@@ -58,6 +59,7 @@ var Chat = {
 		chatElement.style.position = "absolute";
 		chatElement.style.left = left;
 		chatElement.style.top = 200;
+		chatElement.style.zIndex = this.settings.zIndex;
 		chatElement.style.transitionProperty = "top";
 		chatElement.style.transitionDuration = "1s, 1s";
 		chatElement.style.transitionDelay = "0s, 1s";
