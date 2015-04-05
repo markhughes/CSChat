@@ -25,7 +25,10 @@
  */
 
 var Chat = {
-	assets: "assets/chat/",
+	settings: {
+		assetsPath: "assets/chat/",
+		pushTime: 2500
+	},
 	doPush: function() {
 		var elements = document.getElementsByTagName("x-chat-msg");
 		var i = 0;
@@ -67,7 +70,7 @@ var Chat = {
 		chatLeft.style.lineHeight = "23px";
 		chatLeft.style.paddingLeft ="10px";
 		chatLeft.style.paddingRight ="5px";
-		chatLeft.style.backgroundImage = "url('"+this.assets+"name-container.png')";
+		chatLeft.style.backgroundImage = "url('"+this.settings.assetsPath+"name-container.png')";
 		chatLeft.innerHTML = "<b>"+name+"</b>";
 		
 		chatRight.style.float = "left";
@@ -75,7 +78,7 @@ var Chat = {
 		chatRight.style.lineHeight = "23px";
 		chatRight.style.paddingLeft ="10px";
 		chatRight.style.paddingRight ="15px";
-		chatRight.style.backgroundImage = "url('"+this.assets+"msg-container.png')";
+		chatRight.style.backgroundImage = "url('"+this.settings.assetsPath+"msg-container.png')";
 		chatRight.style.backgroundPosition  = "right bottom";
 		chatRight.innerHTML = message;
 		
@@ -84,7 +87,7 @@ var Chat = {
 		
 		if(!this.timeInitiated) {
 			this.timeInitiated = true;
-			setInterval(function() { Chat.doPush(); }, 2000);
+			setInterval(function() { Chat.doPush(); }, this.settings.pushTime);
 		}
 		
 		return chatElement;
